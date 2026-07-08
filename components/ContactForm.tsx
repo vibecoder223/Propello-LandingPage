@@ -20,16 +20,13 @@ export default function ContactForm() {
       return;
     }
     setState("sending");
-    const endpoint = process.env.NEXT_PUBLIC_CONTACT_API;
     try {
-      if (endpoint) {
-        const res = await fetch(endpoint, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(data),
-        });
-        if (!res.ok) throw new Error(String(res.status));
-      }
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error(String(res.status));
       setState("sent");
       form.reset();
     } catch {

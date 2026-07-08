@@ -28,13 +28,8 @@ export default function ContactPage() {
             <div className="cside">
               <div className="ccard">
                 <h4>Email</h4>
-                <a href="mailto:hello@propello.io">hello@propello.io</a>
+                <a href="mailto:khalifa.villaflor1@gmail.com">khalifa.villaflor1@gmail.com</a>
                 <p>For demos, pricing, and product questions.</p>
-              </div>
-              <div className="ccard">
-                <h4>Already a customer?</h4>
-                <a href="mailto:support@propello.io">support@propello.io</a>
-                <p>Priority support for teams on a paid plan.</p>
               </div>
               <div className="ccard">
                 <h4>What to expect</h4>
