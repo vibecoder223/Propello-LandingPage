@@ -14,7 +14,7 @@ export default function SiteHeader({ home = false }: { home?: boolean }) {
           </Link>
           <div className="navlinks">
             <a href={`${base}#how`}>How it works</a>
-            <a href={`${base}#pricing`}>Pricing</a>
+            <Link href="/pricing">Pricing</Link>
             <a href={`${base}#faq`}>FAQ</a>
             <Link href="/contact">Contact</Link>
           </div>

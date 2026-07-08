@@ -327,3 +327,39 @@ details.qa p { font-size: 14.5px; color: var(--ink-3); line-height: 1.65; paddin
   .wstep { border-right: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
   .wstep:nth-child(2n) { border-right: none; }
 }
+
+/* ── Dedicated pricing page (/pricing) ─────────────────────────────────── */
+.page-head { text-align: center; padding: clamp(56px, 9vw, 96px) 0 8px; }
+.page-head .eyebrow-pill { margin-bottom: 18px; }
+.page-title { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 5.4vw, 56px); letter-spacing: -0.03em; color: var(--ink); line-height: 1.08; }
+.page-sub { font-size: 17px; color: var(--ink-3); max-width: 60ch; margin: 20px auto 0; line-height: 1.6; }
+.sec-head { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+.sec-head .eyebrow-pill { margin-bottom: 16px; }
+.sec-title { font-family: var(--display); font-size: clamp(24px, 3.4vw, 38px); font-weight: 650; letter-spacing: -0.025em; color: var(--ink); line-height: 1.14; }
+
+/* Pricing plans (scoped so the homepage's inline plan list is untouched) */
+.pricing-plans { max-width: 1000px; margin: 0 auto; align-items: start; }
+.pricing-plans .plan ul { margin: 22px 0 24px; }
+.pricing-plans .plan li { display: flex; align-items: flex-start; gap: 9px; font-size: 13.5px; color: var(--ink-3); padding: 8px 0; border-top: none; }
+.pricing-plans .plan li:first-child { border-top: none; }
+.li-check { color: var(--brand); flex-shrink: 0; margin-top: 1px; display: inline-flex; }
+.price-note { font-family: var(--mono); font-size: 11px; color: var(--deep); margin-top: 8px; }
+
+/* Comparison table */
+.cmp { padding: 64px 0; }
+.cmp-wrap { max-width: 900px; margin: 0 auto; overflow-x: auto; border: 1px solid var(--rule); border-radius: 14px; box-shadow: var(--shadow-card); -webkit-overflow-scrolling: touch; }
+.cmp-table { width: 100%; min-width: 560px; border-collapse: collapse; background: var(--surface); }
+.cmp-table th, .cmp-table td { text-align: center; padding: 13px 16px; font-size: 13.5px; border-top: 1px solid var(--rule-soft); }
+.cmp-table thead th { border-top: none; font-family: var(--display); font-weight: 600; font-size: 14px; color: var(--ink); padding-top: 18px; padding-bottom: 18px; }
+.cmp-table tbody th[scope="row"] { text-align: left; font-weight: 500; color: var(--ink-2); }
+.cmp-table .hi { background: color-mix(in oklab, var(--tint) 55%, transparent); }
+.cmp-yes { color: var(--brand); display: inline-flex; }
+.cmp-no { color: var(--ink-4); opacity: 0.5; display: inline-flex; }
+.cmp-txt { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+
+/* Pricing-page FAQ + CTA reuse the shared .faq / .ctaband styles above. */
+.pricing-faq { padding: 64px 0 96px; }
+@media (max-width: 860px) { .pricing-plans { max-width: 460px; } }
+
+/* Visually-hidden (screen-reader only) */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
