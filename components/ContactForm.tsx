@@ -4,18 +4,22 @@ import { useState } from "react";
 
 type State = "idle" | "sending" | "sent" | "error";
 
-// Client-side contact form. Posts to /api/contact when NEXT_PUBLIC_CONTACT_API
-// is wired; otherwise it validates and shows the success state so the page is
-// fully usable in preview. Swap in a real handler (Resend, a CRM, a form
-// service) by pointing NEXT_PUBLIC_CONTACT_API at an endpoint.
+const VALIDATION_MSG = "Please add your name, a valid email, and a message.";
+
+// Contact form. Anyone can submit; the message is emailed to us via
+// /api/contact (Resend). On failure it surfaces the server's actual reason
+// instead of a generic message, so misconfiguration is diagnosable.
 export default function ContactForm() {
   const [state, setState] = useState<State>("idle");
+  const [errMsg, setErrMsg] = useState(VALIDATION_MSG);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
-    if (!data.name || !data.email || !data.message) {
+    const emailOk = typeof data.email === "string" && /.+@.+\..+/.test(data.email);
+    if (!data.name || !emailOk || !data.message) {
+      setErrMsg(VALIDATION_MSG);
       setState("error");
       return;
     }
@@ -26,10 +30,18 @@ export default function ContactForm() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error(String(res.status));
+      if (!res.ok) {
+        const j = await res.json().catch(() => ({}));
+        throw new Error(j.error || `Send failed (${res.status}). Please try again.`);
+      }
       setState("sent");
       form.reset();
-    } catch {
+    } catch (err) {
+      setErrMsg(
+        err instanceof Error && err.message
+          ? err.message
+          : "Couldn't send your message. Please email us directly."
+      );
       setState("error");
     }
   }
@@ -90,8 +102,8 @@ export default function ContactForm() {
         <button className="btn btn-primary btn-block" type="submit" disabled={state === "sending"}>
           {state === "sending" ? "Sending…" : "Request a demo"}
         </button>
-        <div className={`formerr${state === "error" ? " is-on" : ""}`}>
-          Please add your name, a valid email, and a message.
+        <div className={`formerr${state === "error" ? " is-on" : ""}`} role="alert">
+          {errMsg}
         </div>
       </div>
     </form>
