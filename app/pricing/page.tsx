@@ -6,9 +6,9 @@ import { Check, Dash } from "@/components/icons";
 import { links } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "Pricing — Propello | Plans from $79/seat",
+  title: "Pricing — Klovered | Plans from $79/seat",
   description:
-    "Simple per-seat pricing for Propello. Try any plan free for 7 days, then Starter at $79, Team at $149, or custom Enterprise.",
+    "Simple per-seat pricing for Klovered. Try any plan free for 7 days, then Starter at $79, Team at $149, or custom Enterprise.",
 };
 
 const starter = [
@@ -143,7 +143,7 @@ export default function PricingPage() {
           </div>
           <div className="cmp-wrap">
             <table className="cmp-table">
-              <caption className="sr-only">Propello plan comparison</caption>
+              <caption className="sr-only">Klovered plan comparison</caption>
               <thead>
                 <tr>
                   <th scope="col">Feature</th>
@@ -194,7 +194,7 @@ export default function PricingPage() {
                 How does per-seat pricing work?<span className="qa-plus" aria-hidden="true" />
               </summary>
               <p>
-                You pay for each person who drafts or reviews answers in Propello. Reviewers and
+                You pay for each person who drafts or reviews answers in Klovered. Reviewers and
                 occasional collaborators count as seats; there are no separate charges per RFP or
                 per question.
               </p>

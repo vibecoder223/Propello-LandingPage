@@ -9,8 +9,8 @@ export default function SiteHeader({ home = false }: { home?: boolean }) {
     <header className="site">
       <div className="wrap">
         <nav aria-label="Primary">
-          <Link className="logo" href="/" aria-label="Propello home">
-            <span className="wordmark">propello</span>
+          <Link className="logo" href="/" aria-label="Klovered home">
+            <span className="wordmark">klovered</span>
           </Link>
           <div className="navlinks">
             <a href={`${base}#how`}>How it works</a>

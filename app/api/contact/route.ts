@@ -6,7 +6,7 @@ export const runtime = "nodejs";
 // Resend, sends use the shared onboarding sender and can only reach the
 // Resend account owner's address — which is exactly CONTACT_TO here.
 const TO = process.env.CONTACT_TO_EMAIL ?? "khalifa.villaflor1@gmail.com";
-const FROM = process.env.RESEND_FROM ?? "Propello <onboarding@resend.dev>";
+const FROM = process.env.RESEND_FROM ?? "Klovered <onboarding@resend.dev>";
 
 function clean(v: unknown, max = 5000): string {
   return String(v ?? "").trim().slice(0, max);
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       from: FROM,
       to: [TO],
       reply_to: email,
-      subject: `Propello demo request — ${name}${company ? ` (${company})` : ""}`,
+      subject: `Klovered demo request — ${name}${company ? ` (${company})` : ""}`,
       html:
         `<h2>New contact request</h2>` +
         `<p><b>Name:</b> ${esc(name)}</p>` +

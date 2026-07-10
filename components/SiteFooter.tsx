@@ -14,7 +14,7 @@ export default function SiteFooter({ home = false }: { home?: boolean }) {
                 aria-hidden="true"
                 style={{ width: 24, height: 24, borderRadius: 6, fontSize: 13 }}
               >
-                P
+                K
               </span>
               <span className="wordmark" style={{ fontSize: 17 }}>
                 propello
@@ -25,7 +25,7 @@ export default function SiteFooter({ home = false }: { home?: boolean }) {
           <div className="foot-col">
             <h4>Product</h4>
             <a href={`${base}#how`}>How it works</a>
-            <a href={`${base}#problem`}>Why Propello</a>
+            <a href={`${base}#problem`}>Why Klovered</a>
             <a href={`${base}#faq`}>FAQ</a>
           </div>
           <div className="foot-col">
@@ -41,7 +41,7 @@ export default function SiteFooter({ home = false }: { home?: boolean }) {
           </div>
         </div>
         <div className="foot-bar">
-          <span className="foot-note">© 2026 Propello</span>
+          <span className="foot-note">© 2026 Klovered</span>
           <span className="foot-note">Win the bid, not the busywork.</span>
         </div>
       </div>

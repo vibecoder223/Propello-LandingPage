@@ -4,9 +4,9 @@ import SiteFooter from "@/components/SiteFooter";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Propello — book a demo",
+  title: "Contact Klovered — book a demo",
   description:
-    "Talk to Propello about AI RFP response software. Book a demo or ask a question — we reply within one business day.",
+    "Talk to Klovered about AI RFP response software. Book a demo or ask a question — we reply within one business day.",
 };
 
 export default function ContactPage() {
@@ -19,7 +19,7 @@ export default function ContactPage() {
             <span className="eyebrow-pill">Contact</span>
             <h2>Book a demo, or ask us anything.</h2>
             <p>
-              Tell us about your bid volume and we&apos;ll show you Propello on a real RFP. We reply
+              Tell us about your bid volume and we&apos;ll show you Klovered on a real RFP. We reply
               within one business day.
             </p>
           </div>

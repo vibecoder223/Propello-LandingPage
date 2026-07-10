@@ -19,7 +19,7 @@ export default function Home() {
           <span className="go">3 days</span>, not 3 weeks.
         </h1>
         <p className="sub">
-          Propello reads the RFP, drafts grounded answers from your knowledge base, and routes them
+          Klovered reads the RFP, drafts grounded answers from your knowledge base, and routes them
           through review. Your team ships, it doesn&apos;t retype.
         </p>
         <div className="herobtns">
@@ -27,7 +27,7 @@ export default function Home() {
             Start free trial
           </a>
           <a href="#how" className="btn btn-outline btn-lg">
-            See Propello in action
+            See Klovered in action
           </a>
         </div>
         <p className="heroproof">
@@ -41,7 +41,7 @@ export default function Home() {
               <span className="dot" />
               <span className="dot" />
               <span className="dot" />
-              <span className="url">app.propello.io/deals/govt-transformation-2026</span>
+              <span className="url">app.klovered.io/deals/govt-transformation-2026</span>
             </div>
             <div className="appshell">
               <div className="appside">
@@ -205,7 +205,7 @@ export default function Home() {
                 <span className="n">01</span>
                 <h3>Upload the RFP</h3>
                 <p>
-                  PDF, Word, or plain text. Propello parses it page by page, keeping every section
+                  PDF, Word, or plain text. Klovered parses it page by page, keeping every section
                   and page reference intact.
                 </p>
               </div>
@@ -243,7 +243,7 @@ export default function Home() {
                 <span className="n">02</span>
                 <h3>Every requirement extracted</h3>
                 <p>
-                  Propello reads the whole document and pulls out every distinct requirement as a
+                  Klovered reads the whole document and pulls out every distinct requirement as a
                   discrete question. Nothing buried on page 140 gets missed.
                 </p>
               </div>
@@ -289,7 +289,7 @@ export default function Home() {
             <span className="eyebrow-pill">Requirement extraction</span>
             <h3>Extract every requirement, even on page 140.</h3>
             <p>
-              Upload the RFP as PDF, Word, or text. Propello reads every section, extracts each
+              Upload the RFP as PDF, Word, or text. Klovered reads every section, extracts each
               requirement, and turns it into a tracked task, so nothing gets missed.
             </p>
           </div>
@@ -321,7 +321,7 @@ export default function Home() {
             <h3>Answers cite your own documents, not a guess.</h3>
             <p>
               Every draft pulls from your approved knowledge base and shows exactly which passage
-              backed each claim. If the answer isn&apos;t there, Propello flags it instead of
+              backed each claim. If the answer isn&apos;t there, Klovered flags it instead of
               inventing one.
             </p>
           </div>
@@ -428,10 +428,10 @@ export default function Home() {
         <div className="faqlist">
           <details className="qa">
             <summary>
-              What is Propello?<span className="qa-plus" aria-hidden="true" />
+              What is Klovered?<span className="qa-plus" aria-hidden="true" />
             </summary>
             <p>
-              Propello is AI RFP response software. It reads a request for proposal, extracts every
+              Klovered is AI RFP response software. It reads a request for proposal, extracts every
               requirement, drafts an answer for each one grounded in your own knowledge base, and
               routes drafts through your team&apos;s review before export.
             </p>
@@ -452,7 +452,7 @@ export default function Home() {
               <span className="qa-plus" aria-hidden="true" />
             </summary>
             <p>
-              Propello flags it as no source instead of guessing. An uncovered requirement shows up
+              Klovered flags it as no source instead of guessing. An uncovered requirement shows up
               for a human to answer, not a fabricated draft.
             </p>
           </details>

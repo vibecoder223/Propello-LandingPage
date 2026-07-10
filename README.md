@@ -1,6 +1,6 @@
-# Propello — marketing site
+# Klovered — marketing site
 
-The Propello landing site (the "landing-human" design), built as a standalone
+The Klovered landing site (the "landing-human" design), built as a standalone
 Next.js 16 app. It is deployed separately from the product app; CTAs link to the
 product's `/auth/*` routes via `NEXT_PUBLIC_APP_URL`.
 
