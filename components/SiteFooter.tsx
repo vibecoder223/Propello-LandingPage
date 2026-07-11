@@ -17,7 +17,7 @@ export default function SiteFooter({ home = false }: { home?: boolean }) {
                 K
               </span>
               <span className="wordmark" style={{ fontSize: 17 }}>
-                propello
+                klovered
               </span>
             </span>
             <p className="foot-tagline">AI RFP response software. Grounded, cited, reviewed.</p>
