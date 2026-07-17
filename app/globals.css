@@ -36,6 +36,17 @@ nav { display: flex; align-items: center; justify-content: space-between; paddin
 .navlinks a:hover { color: var(--ink); }
 .navactions { display: flex; align-items: center; gap: 14px; }
 
+.navtoggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 34px; height: 34px; border: none; background: transparent; cursor: pointer; padding: 0; flex-shrink: 0; }
+.navtoggle-line { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform 160ms var(--ease), opacity 160ms var(--ease); }
+.navtoggle-line.is-open-1 { transform: translateY(3.5px) rotate(45deg); }
+.navtoggle-line.is-open-2 { transform: translateY(-3.5px) rotate(-45deg); }
+
+.mobilemenu { display: flex; flex-direction: column; gap: 2px; padding: 4px 0 20px; border-top: 1px solid var(--rule-soft); }
+.mobilemenu a { padding: 12px 2px; font-size: 15px; color: var(--ink-2); }
+.mobilemenu a:hover { color: var(--ink); }
+.mobilemenu-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.mobilemenu-actions .btn { justify-content: center; }
+
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 140ms var(--ease), border-color 140ms var(--ease), color 140ms var(--ease), transform 140ms var(--ease), box-shadow 140ms var(--ease); }
 .btn-ghost { color: var(--ink-2); }
 .btn-ghost:hover { color: var(--ink); }
@@ -314,7 +325,8 @@ details.qa p { font-size: 14.5px; color: var(--ink-3); line-height: 1.65; paddin
   .split, .feature { gap: 40px; }
   .feature.rev .fcopy, .feature.rev .fviz { order: unset; }
   .brow { gap: 8px; }
-  .appside, .navlinks { display: none; }
+  .appside, .navlinks, .navactions { display: none; }
+  .navtoggle { display: flex; }
 }
 @media (max-width: 560px) {
   .hero { padding: 56px 0 68px; }

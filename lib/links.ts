@@ -1,10 +1,15 @@
-// The product (auth, dashboard) is a separate deployment. In production set
-// NEXT_PUBLIC_APP_URL to the app origin (e.g. https://app.klovered.io) so the
-// marketing CTAs point at the real sign-in / sign-up. Falls back to relative
-// paths for local preview.
-const APP = process.env.NEXT_PUBLIC_APP_URL ?? "";
+// The product is Klovered Free — a separate Next.js deployment (repo
+// klovered-free) whose root redirects to /knowledge. It has no dedicated
+// /auth/login or /auth/signup pages; auth is a modal opened from the header.
+// The modal supports a ?auth=signin | ?auth=signup deep link (see
+// AuthButton.tsx in that repo) so these CTAs land straight in the right tab.
+//
+// Set NEXT_PUBLIC_APP_URL to that deployment's origin once it's live. Until
+// then this falls back to the local dev server so the CTAs work while both
+// projects run locally.
+const APP = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3100";
 
 export const links = {
-  signin: `${APP}/auth/login`,
-  signup: `${APP}/auth/signup`,
+  signin: `${APP}/knowledge?auth=signin`,
+  signup: `${APP}/knowledge?auth=signup`,
 };
