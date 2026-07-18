@@ -4,6 +4,10 @@ import SiteFooter from "@/components/SiteFooter";
 import ScrollReveal from "@/components/ScrollReveal";
 import { links } from "@/lib/links";
 
+// Pricing is hidden for now. Flip to true to restore the homepage pricing
+// section (and re-add the Pricing links in SiteHeader / SiteFooter).
+const SHOW_PRICING = false;
+
 export default function Home() {
   return (
     <>
@@ -363,7 +367,7 @@ export default function Home() {
       </section>
 
       {/* Pricing — hidden for now (kept in place for an easy restore) */}
-      {false && (
+      {SHOW_PRICING && (
       <section className="pricing wrap reveal" id="pricing">
         <div className="head">
           <span className="eyebrow-pill">Pricing</span>
