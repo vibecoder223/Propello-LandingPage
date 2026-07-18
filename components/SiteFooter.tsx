@@ -30,7 +30,6 @@ export default function SiteFooter({ home = false }: { home?: boolean }) {
           </div>
           <div className="foot-col">
             <h4>Company</h4>
-            <Link href="/pricing">Pricing</Link>
             <Link href="/contact">Contact</Link>
             <a href={links.signin}>Sign in</a>
           </div>

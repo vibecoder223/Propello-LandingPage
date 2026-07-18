@@ -47,9 +47,9 @@ nav { display: flex; align-items: center; justify-content: space-between; paddin
 .mobilemenu-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
 .mobilemenu-actions .btn { justify-content: center; }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 140ms var(--ease), border-color 140ms var(--ease), color 140ms var(--ease), transform 140ms var(--ease), box-shadow 140ms var(--ease); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; background: transparent; border: 1px solid transparent; transition: background 140ms var(--ease), border-color 140ms var(--ease), color 140ms var(--ease), transform 140ms var(--ease), box-shadow 140ms var(--ease); }
 .btn-ghost { color: var(--ink-2); }
-.btn-ghost:hover { color: var(--ink); }
+.btn-ghost:hover { color: var(--ink); background: var(--rule-soft); }
 .btn-outline { border: 1px solid var(--rule); color: var(--ink-2); background: var(--surface); }
 .btn-outline:hover { border-color: var(--ink-4); color: var(--ink); transform: translateY(-1px); }
 .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 1px 2px oklch(0.44 0.16 152 / 0.28); }

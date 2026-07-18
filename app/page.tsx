@@ -362,7 +362,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* Pricing — hidden for now (kept in place for an easy restore) */}
+      {false && (
       <section className="pricing wrap reveal" id="pricing">
         <div className="head">
           <span className="eyebrow-pill">Pricing</span>
@@ -418,6 +419,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      )}
 
       {/* FAQ */}
       <section className="faq wrap reveal" id="faq">

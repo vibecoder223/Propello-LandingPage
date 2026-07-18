@@ -28,7 +28,7 @@ export default function ContactPage() {
             <div className="cside">
               <div className="ccard">
                 <h4>Email</h4>
-                <a href="mailto:khalifa.villaflor1@gmail.com">khalifa.villaflor1@gmail.com</a>
+                <a href="mailto:info@klovered.com">info@klovered.com</a>
                 <p>For demos, pricing, and product questions.</p>
               </div>
               <div className="ccard">
