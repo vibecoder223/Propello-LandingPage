@@ -12,7 +12,9 @@ COPY . .
 # NEXT_PUBLIC_* vars are inlined at build time, so the CTA target must be known
 # here, not at runtime. Passed via the compose build arg.
 ARG NEXT_PUBLIC_APP_URL=""
-ENV NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+ARG NEXT_PUBLIC_UMAMI_WEBSITE_ID=""
+ENV NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
+    NEXT_PUBLIC_UMAMI_WEBSITE_ID=${NEXT_PUBLIC_UMAMI_WEBSITE_ID}
 RUN npm run build
 
 FROM node:20-alpine AS runner

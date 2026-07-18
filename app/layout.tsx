@@ -37,6 +37,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap"
           rel="stylesheet"
         />
+        {/* Self-hosted, first-party analytics (Umami) — no cookie, no
+            third-party request. No-op until NEXT_PUBLIC_UMAMI_WEBSITE_ID is
+            set at build time (see docker-compose.stack.yml). */}
+        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+          <script
+            defer
+            src="/analytics/script.js"
+            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+          />
+        )}
       </head>
       <body>{children}</body>
     </html>
