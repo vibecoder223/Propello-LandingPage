@@ -50,7 +50,7 @@ export default function SiteHeader({ home = false }: { home?: boolean }) {
               Contact
             </Link>
             <div className="mobilemenu-actions">
-              <AuthControls onNavigate={close} />
+              <AuthControls onNavigate={close} stacked />
             </div>
           </div>
         )}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { api } from "@/lib/api";
 import AuthModal from "./AuthModal";
 
@@ -24,10 +24,20 @@ function GoogleMark() {
 //    "Start free trial" launches the guest tool at /app.
 //  • Signed in  → account email + "Open app" + "Sign out".
 // A ?auth=signin|signup deep link (e.g. an old CTA URL) opens the modal too.
-export default function AuthControls({ onNavigate }: { onNavigate?: () => void }) {
+export default function AuthControls({
+  onNavigate,
+  stacked = false,
+}: {
+  onNavigate?: () => void;
+  // `stacked` is the mobile-menu layout: controls listed vertically, no dropdown.
+  // Default (bar) is the desktop header: primary CTA + a monogram avatar menu.
+  stacked?: boolean;
+}) {
   const [email, setEmail] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
   const [modal, setModal] = useState<null | "signin" | "signup">(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -58,6 +68,21 @@ export default function AuthControls({ onNavigate }: { onNavigate?: () => void }
     }
   }, []);
 
+  // Close the avatar menu on outside click / Escape.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setMenuOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("mousedown", onDown);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("mousedown", onDown);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
+
   async function signOut() {
     try {
       await api.logout();
@@ -68,18 +93,57 @@ export default function AuthControls({ onNavigate }: { onNavigate?: () => void }
   }
 
   if (ready && email) {
+    // Mobile menu: keep everything visible and stacked, no dropdown.
+    if (stacked) {
+      return (
+        <>
+          <span className="auth-badge" title={`Signed in as ${email}`}>
+            <span className="auth-badge-dot" aria-hidden="true" />
+            {email}
+          </span>
+          <a href={`${APP}/knowledge`} className="btn btn-primary" onClick={onNavigate}>
+            Open app
+          </a>
+          <button type="button" className="btn btn-ghost" onClick={signOut}>
+            Sign out
+          </button>
+        </>
+      );
+    }
+
+    // Desktop header: keep "Open app" as the visible CTA; identity collapses to a
+    // fixed-width monogram avatar whose menu holds the email + Sign out. A spelled
+    // out email varied in width and shoved the centered nav links off-axis.
+    const initial = email.trim().charAt(0).toUpperCase() || "?";
     return (
       <>
-        <span className="auth-badge" title={`Signed in as ${email}`}>
-          <span className="auth-badge-dot" aria-hidden="true" />
-          {email}
-        </span>
         <a href={`${APP}/knowledge`} className="btn btn-primary" onClick={onNavigate}>
           Open app
         </a>
-        <button type="button" className="btn btn-ghost" onClick={signOut}>
-          Sign out
-        </button>
+        <div className="acct" ref={menuRef}>
+          <button
+            type="button"
+            className="acct-avatar-btn"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-haspopup="menu"
+            aria-expanded={menuOpen}
+            aria-label={`Account — signed in as ${email}`}
+            title={`Signed in as ${email}`}
+          >
+            <span className="acct-avatar" aria-hidden="true">{initial}</span>
+          </button>
+          {menuOpen && (
+            <div className="acct-menu" role="menu">
+              <div className="acct-menu-head">
+                <span className="acct-menu-label">Signed in as</span>
+                <span className="acct-menu-email">{email}</span>
+              </div>
+              <button className="acct-menu-item" role="menuitem" onClick={signOut}>
+                Sign out
+              </button>
+            </div>
+          )}
+        </div>
       </>
     );
   }
