@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   description:
     "Klovered reads the RFP, drafts grounded answers from your knowledge base with citations, and routes them through review. Win the bid, not the busywork.",
   alternates: { canonical: "/" },
+  // Google Search Console ownership proof for the https://klovered.com URL-prefix
+  // property. Emits <meta name="google-site-verification" ...> in <head>. Must
+  // stay in place to keep the property verified.
+  verification: { google: "0Hqk-ejNmoUfr031f69NLgJHkZ1dHmEPqOAAqMEQp4s" },
   openGraph: {
     type: "website",
     url: "https://klovered.com",
