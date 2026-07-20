@@ -45,7 +45,7 @@ export default function Home() {
               <span className="dot" />
               <span className="dot" />
               <span className="dot" />
-              <span className="url">app.klovered.io/deals/govt-transformation-2026</span>
+              <span className="url">klovered.com/app/deals/govt-transformation-2026</span>
             </div>
             <div className="appshell">
               <div className="appside">
